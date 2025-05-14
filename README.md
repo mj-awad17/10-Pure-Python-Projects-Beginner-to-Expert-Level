@@ -11,7 +11,7 @@ Just **pure Python** magic using the built-in features you already have!
 
 ---
 
-## 🧩 What's Inside?
+## 📤 What's Inside?
 
 We’ve split the projects by difficulty to guide your journey:
 
@@ -23,7 +23,7 @@ We’ve split the projects by difficulty to guide your journey:
 
 ---
 
-## 🟢 Beginner Projects (1–3)
+## 🧒 Beginner Projects (1–3)
 
 ### 1️⃣ Number Guessing Game 🎯  
 A classic guessing game! The computer picks a number, and you try to guess it. Helpful hints included.
@@ -46,7 +46,7 @@ A simple task tracker that lives in your terminal. Add, view, and delete your ta
 
 ---
 
-## 🟡 Intermediate Projects (4–6)
+## 👨 Intermediate Projects (4–6)
 
 ### 4️⃣ Text-Based Adventure Game 🧙‍♂️🗺️  
 Build your own fantasy world and let players explore it using typed commands.
@@ -69,7 +69,7 @@ A handy phone book where users can store and search for contact info.
 
 ---
 
-## 🔴 Expert Projects (7–10)
+## 👴 Expert Projects (7–10)
 
 ### 7️⃣ Command-Line Snake Game 🐍  
 Text-based Snake game you play in the terminal — no graphics, just logic and timing.
