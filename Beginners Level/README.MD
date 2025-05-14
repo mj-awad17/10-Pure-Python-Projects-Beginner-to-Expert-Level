@@ -48,6 +48,39 @@ secret_number = random.randint(1, 100)
 ### Step 2: Get User Input
 User to guess the number using the `input()` function and convert it to an integer:
 
-`guess = int(input("Take a guess: "))
+```
+guess = int(input("Take a guess: "))
+```
 
+### Step 3: Loop Until Correct
+We use a while loop to keep asking the user for a guess until they guess the number:
 
+```
+while guess != secret_number:
+    # give hints and ask again
+```
+
+### Step 4: Provide Hints
+After each guess, the game tells the user if the guess was too high or too low.
+```
+if guess < secret_number:
+    print("Too low!")
+elif guess > secret_number:
+    print("Too high!")
+```
+### Step 5: Track Attempts
+We increment a counter each time the user guesses:
+```
+attempts += 1
+```
+### Step 6: Handle Errors
+To make the game user-friendly, we wrap the input in a try/except block to catch invalid entries like letters or symbols.
+
+---
+💡 Ideas for Improvements
+Once you're done, try enhancing the game:
+
+- Add a difficulty level (Easy, Medium, Hard)
+- Limit the number of attempts
+- Let users choose the range (e.g., 1–500)
+- Add a replay option
