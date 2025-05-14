@@ -24,4 +24,4 @@ while guess != secret_number:
         print("Please enter a valid number!")
 
 # Step 4: Win message
-print(f"Congratulations! You guessed the number in {attempts} tries.")
+print(f"🎉Congratulations🎉! You guessed the number:{guess}, in {attempts} tries.")
