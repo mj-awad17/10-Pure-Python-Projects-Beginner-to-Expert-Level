@@ -83,19 +83,46 @@ Create a simple spreadsheet in the terminal that supports cell formulas like `=A
 pure-python-projects/
 │
 ├── beginner/
-│   ├── 1_number_guessing_game.py
-│   ├── 2_simple_calculator.py
-│   └── 3_todo_list.py
+│   ├── Project01/
+│   │   ├── number_guessing_game.py
+│   │   └── README.md
+│   │
+│   ├── Project02/
+│   │   ├── simple_calculator.py
+│   │   └── README.md
+│   │
+│   └── Project03/
+│       ├── todo_list.py
+│       └── README.md
 │
 ├── intermediate/
-│   ├── 4_text_adventure_game.py
-│   ├── 5_file_encryption.py
-│   └── 6_contact_book.py
+│   ├── Project4/
+│   │   ├── text_adventure_game.py
+│   │   └── README.md
+│   │
+│   ├── Project05/
+│   │   ├── file_encryption.py
+│   │   └── README.md
+│   │
+│   └── Project06/
+│       ├── contact_book.py
+│       └── README.md
 │
 ├── expert/
-│   ├── 7_snake_game.py
-│   ├── 8_mini_interpreter.py
-│   ├── 9_chat_simulator.py
-│   └── 10_spreadsheet_processor.py
+│   ├── Project07/
+│   │   ├── snake_game.py
+│   │   └── README.md
+│   │
+│   ├── Project08/
+│   │   ├── mini_interpreter.py
+│   │   └── README.md
+│   │
+│   ├── Project09/
+│   │   ├── chat_simulator.py
+│   │   └── README.md
+│   │
+│   └── Project10/
+│       ├── cspreadsheet_processor.py
+│       └── README.md
 │
 └── README.md
