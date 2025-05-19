@@ -124,7 +124,7 @@ Create a spreadsheet in Python that supports cell formulas like `=A1 + B2`.
 ## 📁 Suggested Folder Structure
 
 ```plaintext
-pure-python-projects/
+10-Pure-Python-Projects/
 │
 ├── beginner/
 │   ├── Project01/
