@@ -31,10 +31,10 @@ def show_status(location, inventory):
 def adventure_game():
     rooms = {
         'Forest': {'north': 'Tower', 'east': 'River', 'south': 'Cave', 'west': 'Hut'},
-        'Cave': {'north': 'Forest', 'item': 'Sword'},
-        'River': {'west': 'Forest', 'item': 'Shield'},
+        'Cave': {'north': 'Forest', 'item': 'Sword', 'locked': True},
+        'River': {'west': 'Forest', 'item': 'Shield', 'locked': True},
         'Tower': {'south': 'Forest', 'locked': True, 'item': 'Crystal'},
-        'Hut': {'east': 'Forest', 'item': 'Armor'},
+        'Hut': {'east': 'Forest', 'item': 'Armor', 'locked': True},
     }
 
     inventory = []
