@@ -3,8 +3,38 @@ import os
 # Caesar Cipher Implementation
 
 # This script implements a simple Caesar cipher encryption and decryption.
-def case_cipher():
-    pass
+"""
+Steps to implement the case_cipher function:
+1. Define the function with parameters for text, shift, and mode (encrypt/decrypt).
+2. Initialize an empty string to store the result.
+3. Reverse the shift for decryption.
+4. Loop through each character in the text.
+5. Check if the character is an uppercase letter.
+6. Determine the base (A or a) and perform the shift.
+7. Apply the shift and wrap around using modulo.
+8. Append the shifted character to the result string.
+9. If the character is not an alphabetic character, keep it unchanged.
+10. Return the result string.
+"""
+def case_cipher(text, shift, mode='encrypt'):
+    result = ""
+    # reverse the shift for decryption
+    if mode == 'decrypt':
+        shift = -shift
+    
+    # loop through each character in the text
+    for char in text:
+        if char.isalpha():
+            # determine the base (a/A) and perform the shift
+            base = ord('A') if char.isupper() else ord('a')
+            # apply shift and wrap around using (26 letters in alphates) modulo
+            shifted = chr((ord(char)-base + shift) % 26 + base)
+            result += shifted
+        else:
+            # if not an alphabetic character, keep it unchanged
+            result += char
+    
+    return result
 
 # This function takes a string and a shift value, and returns the encrypted/decrypted string.
 """
