@@ -1,3 +1,1 @@
-Hello Adventurer,
-
-Good luck!
+The example txt file for checking the tool which i made in pure python programming language. Well, let's see how will it encrypted/decrypted this file and see the last output.
