@@ -1,85 +1,52 @@
-# basic file operation
-# f = open('secret.txt', 'r')
-# print(f.read())
+import os
 
-# f = open(input("Enter filename to process (e.g., secret.txt): "), 'r')
-# print(f.read())
+# Caesar Cipher Implementation
 
+# This script implements a simple Caesar cipher encryption and decryption.
+def case_cipher():
+    pass
 
-def main():
-    print("🔐 Caesar Cipher File Encryption Tool")
-    while True:
-        mode = input("Enter mode (encrypt/decrypt): ").lower()
-        if mode not in ['encrypt', 'decrypt']:
-            print("Please enter 'encrypt' or 'decrypt'.")
-            continue
-        break
-
-    filename = input("Enter filename to process (e.g., secret.txt): ").strip()
-
+# This function takes a string and a shift value, and returns the encrypted/decrypted string.
+"""
+Steps to implement the process_file function:
+1. Open the file in read mode.
+2. Read the contents of the file.
+3. Process the content using the case_cipher function.
+4. Create the output file directory if it doesn't exist.
+5. Write the processed content to the output file.
+6. Handle any exceptions that may occur during file operations.
+7. Return a success message or an error message.
+"""
+def process_file(input_file, output_file, shift):
     try:
-        shift = int(input("Enter shift amount (e.g., 3): "))
-    except ValueError:
-        print("Shift must be a number.")
-        return
-
-    process_file(filename, mode, shift)
-
-def caesar_cipher(text, mode, shift):
-    if mode not in ['encrypt', 'decrypt']:
-        raise ValueError("Mode must be 'encrypt' or 'decrypt'.")
-    result = ""
-    for char in text:
-        if char.isalpha():
-            base = ord('A') if char.isupper() else ord('a')
-            if mode == 'encrypt':
-                shifted = (ord(char) - base + shift) % 26
-            elif mode == 'decrypt':
-                shifted = (ord(char) - base - shift) % 26
-            result += chr(base + shifted)
-        else:
-            result += char  # Leave punctuation/spaces unchanged
-    return result
-
-def process_file(filename, mode, shift):
-    print("🔐 File Processing working")
-
-    try:
-        # Check if the file exists
-        with open(filename, 'r', encoding='utf-8') as file:
+        # Open the input file in read mode
+        with open(input_file, 'r', endcoding='utf-8') as file:
+            # read the contents of the file
             content = file.read()
         
-        # Simulate file processing
-        print(f"File content: {content}")
-        processed = caesar_cipher(content, mode, shift)
-        print(f"File is {mode}ed as:: {processed}")
+        # process the content using the case_cipher function
+        processed_content = case_cipher(content, shift, mode='encrypt')
 
-        # save in the specific folder
-        output_folder = f"Intermediate-Level/Project05/output/"
-        output_filename = f"{output_folder}/{mode}ed_{filename}.txt"
+        # Create the output file directory if it doesn't exist
+        os.path.dirname('output', exits_ok=True)
+        
+        # write to the output file
+        output_path = os.path.join('output', output_file)
+        with open(output_path, 'w', encoding='utf-8') as file:
+            file.write(processed_content)
+        
+        return True, output_path
 
-        # create new empty file
-        new_filename = input("Enter new filename (without extension): ").strip()
-        with open(f"{new_filename}.txt", 'x', encoding='utf-8') as output:
-            output.write(processed)
-
-        if not new_filename:
-            print("No new filename provided. Using default.")
-            new_filename = filename.split('.')[0]
-
-        # Create the output folder if it doesn't exist
-        with open(f"{output_folder}/{new_filename}.txt", 'w', encoding='utf-8') as output:
-            output.write(processed)
-        print(f"✅ Done! Your file is saved as '{output_filename}'")
-
+    # Handle file not found error
     except FileNotFoundError:
-        print("❌ File not found. Make sure the filename is correct.")
-        return
+        return False, f"❌ Error: File {input_file} not found."
     except Exception as e:
-        print(f"⚠️ Something went wrong: {e}")
-        return
-    
-    # print(f"File content: {content}")
+        return False, f"⚠ Error: {str(e)}"
+
+# This is the main function that will call the case_cipher and process_file functions.
+# It will also handle user input and output too.
+def main():
+    pass
 
 if __name__ == "__main__":
     main()
