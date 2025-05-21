@@ -47,36 +47,71 @@ Steps to implement the process_file function:
 6. Handle any exceptions that may occur during file operations.
 7. Return a success message or an error message.
 """
-def process_file(input_file, output_file, shift):
+def process_file(input_file, output_file, shift_amount, mode='encrypt'):
     try:
-        # Open the input file in read mode
-        with open(input_file, 'r', endcoding='utf-8') as file:
-            # read the contents of the file
+        # Get the directory of the current script
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        # Create full path for input file
+        input_path = os.path.join(current_dir, input_file)
+        
+        # Read input file
+        with open(input_path, 'r', encoding='utf-8') as file:
             content = file.read()
-        
-        # process the content using the case_cipher function
-        processed_content = case_cipher(content, shift, mode='encrypt')
 
-        # Create the output file directory if it doesn't exist
-        os.path.dirname('output', exits_ok=True)
-        
-        # write to the output file
-        output_path = os.path.join('output', output_file)
+        # Process the content
+        processed_content = case_cipher(content, shift_amount, mode)
+
+        # Create output directory if it doesn't exist
+        output_dir = os.path.join(current_dir, 'output')
+        os.makedirs(output_dir, exist_ok=True)
+
+        # Write to output file
+        output_path = os.path.join(output_dir, output_file)
         with open(output_path, 'w', encoding='utf-8') as file:
             file.write(processed_content)
-        
-        return True, output_path
 
-    # Handle file not found error
+        return True, output_path
+    
+    # Handle exceptions
     except FileNotFoundError:
-        return False, f"❌ Error: File {input_file} not found."
+        return False, "Error: Input file not found!"
     except Exception as e:
-        return False, f"⚠ Error: {str(e)}"
+        return False, f"Error: {str(e)}"
 
 # This is the main function that will call the case_cipher and process_file functions.
 # It will also handle user input and output too.
 def main():
-    pass
+    print("\n🔏 Welcome to the File Encryption/Decryption Program!")
+    
+    # get the operation mode from the user
+    mode = input("Please enter 'encrypt' or 'decrypt': ").strip().lower()
+    if mode not in ['encrypt', 'decrypt']:
+        print("❌ Invalid mode. Please enter 'encrypt' or 'decrypt'.")
+        return
+    
+    # get the input file name from the user
+    input_file = input("Please enter the input file name (with extension): ").strip()
 
+    # get the shift value
+    while True:
+        try:
+            shift = int(input("Please enter the shift value (integer): ").strip())
+            break
+        except ValueError:
+            print("❌ Invalid input. Please enter an integer for the shift value.")
+        
+    # Get output filename
+    output_name = input("Enter new filename (without extension): ")
+    if not output_name:
+        output_name = f"{mode}ed_output"
+    output_file = f"{output_name}.txt"
+
+    # process the file
+    success, message = process_file(input_file, output_file, shift)
+    if success:
+        print(f"✅ {mode.capitalize()}ion successful!\nOutput file: {message}")
+    else:
+        print(message)
+    
 if __name__ == "__main__":
     main()
