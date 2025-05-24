@@ -15,7 +15,7 @@ No databases. No fluff. Just Python, JSON, and productivity. 🧠✨
 
 ---
 
-## ✨ Features
+## 🛠 Features
 
 | Feature           | Description                                  |
 |-------------------|----------------------------------------------|
